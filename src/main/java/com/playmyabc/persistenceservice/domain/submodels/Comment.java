@@ -2,9 +2,10 @@ package com.playmyabc.persistenceservice.domain.submodels;
 
 import java.util.List;
 
-public class Comments {
+public class Comment {
+    int id;
     String comment;
-    List<String> replies;
-    int likes;
-    int dislikes;
+    List<Comment> replies;
+    long likes;
+    long dislikes;
 }
