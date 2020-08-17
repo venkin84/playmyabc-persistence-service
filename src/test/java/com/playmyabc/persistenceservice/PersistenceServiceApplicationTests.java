@@ -1,10 +1,10 @@
-package com.takeurq.repositoryservice;
+package com.playmyabc.repositoryservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RepositoryServiceApplicationTests {
+class PersistenceServiceApplicationTests {
 
     @Test
     void contextLoads() {
