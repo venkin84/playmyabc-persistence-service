@@ -1,4 +1,4 @@
-package com.playmyabc.persistenceservice.domain.submodels;
+package com.playmyabc.persistenceservice.domain.subdomain;
 
 public enum QuestionType {
     MULTIPLE_CHOICE_QUESTION,

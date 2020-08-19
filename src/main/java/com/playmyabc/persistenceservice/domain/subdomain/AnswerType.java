@@ -1,4 +1,4 @@
-package com.playmyabc.persistenceservice.domain.submodels;
+package com.playmyabc.persistenceservice.domain.subdomain;
 
 public enum AnswerType {
     FIXED_SINGLE_CHOICE,

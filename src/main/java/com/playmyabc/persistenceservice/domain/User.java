@@ -1,12 +1,10 @@
 package com.playmyabc.persistenceservice.domain;
 
-import com.playmyabc.persistenceservice.domain.submodels.IdentityProvider;
-import com.playmyabc.persistenceservice.domain.submodels.RegistrationStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.playmyabc.persistenceservice.domain.subdomain.IdentityProvider;
+import com.playmyabc.persistenceservice.domain.subdomain.RegistrationStatus;
+import lombok.*;
 import org.bson.types.Binary;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,7 +15,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document
+@ToString
+@Document (collection = "users")
 public class User {
     @Id
     String id;
@@ -29,7 +28,7 @@ public class User {
     String emailAddress;
 
     Binary image;
-    //    Service Implementation for sending receiving photos
+//    Service Implementation for sending receiving photos
 //    public String addPhoto(String title, MultipartFile file) throws IOException {
 //        Photo photo = new Photo(title);
 //        photo.setImage(
@@ -40,8 +39,11 @@ public class User {
 //    public Photo getPhoto(String id) {
 //        return photoRepo.findById(id).get();
 //    }
+
+    @CreatedDate
     LocalDateTime registeredOn;
     RegistrationStatus registrationStatus;
     LocalDateTime unregisteredOn;
+
     IdentityProvider identityProvider;
 }

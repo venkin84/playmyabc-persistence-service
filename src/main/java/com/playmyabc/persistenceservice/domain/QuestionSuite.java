@@ -1,12 +1,7 @@
 package com.playmyabc.persistenceservice.domain;
 
-import com.playmyabc.persistenceservice.domain.submodels.Comment;
-import com.playmyabc.persistenceservice.domain.submodels.QuestionSuiteType;
-import com.playmyabc.persistenceservice.domain.submodels.Content;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.playmyabc.persistenceservice.domain.subdomain.*;
+import lombok.*;
 import org.bson.types.Binary;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -23,7 +18,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document
+@ToString
+@Document (collection = "question_suites")
 public class QuestionSuite {
     @Id
     String id;
@@ -35,12 +31,14 @@ public class QuestionSuite {
     String description;
     Binary image;
 
+    AppContext appContext;
     QuestionSuiteType questionSuiteType;
 
     @DBRef List<Group> authorGroups;
     @DBRef List<Group> targetGroups;
     @DBRef User author;
     @DBRef List<Tag> tags;
+    List<Category> categoryList;
 
     List<QuestionUnit> questionUnits;
     List<Content> contents;

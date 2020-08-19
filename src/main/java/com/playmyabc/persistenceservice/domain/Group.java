@@ -1,10 +1,7 @@
 package com.playmyabc.persistenceservice.domain;
 
-import com.playmyabc.persistenceservice.domain.submodels.GroupType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.playmyabc.persistenceservice.domain.subdomain.GroupType;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -17,7 +14,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document
+@ToString
+@Document (collection = "groups")
 public class Group {
     @Id
     String id;

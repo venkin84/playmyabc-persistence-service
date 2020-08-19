@@ -1,6 +1,4 @@
-package com.playmyabc.persistenceservice.domain.submodels;
-
-import org.bson.types.Binary;
+package com.playmyabc.persistenceservice.domain.subdomain;
 
 import java.util.List;
 
