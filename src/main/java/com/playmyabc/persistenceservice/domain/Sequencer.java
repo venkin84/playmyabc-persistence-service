@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @NoArgsConstructor
 @Document (collection = "database_sequences")
-public class DBSequence {
+public class Sequencer {
     @Id
     private String id;
 

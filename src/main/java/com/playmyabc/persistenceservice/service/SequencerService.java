@@ -1,6 +1,6 @@
 package com.playmyabc.persistenceservice.service;
 
-import com.playmyabc.persistenceservice.domain.DBSequence;
+import com.playmyabc.persistenceservice.domain.Sequencer;
 import com.playmyabc.persistenceservice.repository.DBSequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,18 +8,19 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class SequenceGeneratorService {
+public class SequencerService {
     private DBSequenceRepository dbSequenceRepository;
 
     @Autowired
-    public SequenceGeneratorService (DBSequenceRepository dbSequenceRepository) {
+    public SequencerService(DBSequenceRepository dbSequenceRepository) {
         this.dbSequenceRepository = dbSequenceRepository;
     }
 
+    //Ideally the seqName parameter has to be the QuestionSuite ID for QuestionUnitID Sequencing
     public long getNextSeqNumber(String seqName) {
-        Optional<DBSequence> counter = dbSequenceRepository.findById(seqName);
+        Optional<Sequencer> counter = dbSequenceRepository.findById(seqName);
         if (counter.isEmpty()) {
-            DBSequence sequence = new DBSequence();
+            Sequencer sequence = new Sequencer();
             sequence.setId(seqName);
             sequence.setSeq(1);
             dbSequenceRepository.insert(sequence);

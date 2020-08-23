@@ -50,6 +50,7 @@ public class QuestionSuite {
     LocalDateTime createdOn;
     @LastModifiedDate
     LocalDateTime lastModifiedOn;
+    LocalDateTime deletedOn;
     LocalDateTime expiresOn;
 
     List<Comment> comments;

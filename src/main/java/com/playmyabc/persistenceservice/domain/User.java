@@ -6,6 +6,7 @@ import lombok.*;
 import org.bson.types.Binary;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -24,26 +25,17 @@ public class User {
     String firstName;
     String lastName;
 
+    Binary image;
+
     @Indexed (unique = true)
     String emailAddress;
-
-    Binary image;
-//    Service Implementation for sending receiving photos
-//    public String addPhoto(String title, MultipartFile file) throws IOException {
-//        Photo photo = new Photo(title);
-//        photo.setImage(
-//                new Binary(BsonBinarySubType.BINARY, file.getBytes()));
-//        photo = photoRepo.insert(photo); return photo.getId();
-//    }
-//
-//    public Photo getPhoto(String id) {
-//        return photoRepo.findById(id).get();
-//    }
+    IdentityProvider identityProvider;
 
     @CreatedDate
     LocalDateTime registeredOn;
     RegistrationStatus registrationStatus;
     LocalDateTime unregisteredOn;
-
-    IdentityProvider identityProvider;
+    LocalDateTime reregisteredOn;
+    @LastModifiedDate
+    LocalDateTime lastModifiedOn;
 }

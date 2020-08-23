@@ -1,10 +1,17 @@
 package com.playmyabc.persistenceservice.domain.subdomain;
 
+import lombok.*;
+
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Answer {
     AnswerType type;
-    int choiceAnswer;
+    List<Integer> choiceAnswer;
     Boolean booleanAnswer;
     Content textAnswer;
     List<Content> justification;

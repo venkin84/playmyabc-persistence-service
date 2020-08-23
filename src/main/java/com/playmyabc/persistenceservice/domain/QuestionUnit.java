@@ -1,9 +1,12 @@
 package com.playmyabc.persistenceservice.domain;
 
+import com.playmyabc.persistenceservice.domain.subdomain.Answer;
 import com.playmyabc.persistenceservice.domain.subdomain.Comment;
+import com.playmyabc.persistenceservice.domain.subdomain.Question;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,23 +21,22 @@ import java.util.List;
 @ToString
 @Document (collection = "question_units")
 public class QuestionUnit {
-    @Transient
-    public static final String SEQ_NAME = "questionunit_sequence";
-
     @Id
     private String id;
 
-    //private Question question;
-    //private Answer answer;
+    private Question question;
+    private Answer answer;
 
     private List<Comment> authorGroupComments;
     private List<Comment> userComments;
     private long likes;
     private long dislikes;
 
-    private long questionUnitId; // TODO find a way to auto-generate the sequence
-    private int version;
+    private long questionUnitId;
+    private long version;
 
     @CreatedDate
     private LocalDateTime createdOn;
+    @LastModifiedDate
+    LocalDateTime lastModifiedOn;
 }
